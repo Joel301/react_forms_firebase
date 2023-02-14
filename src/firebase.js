@@ -6,7 +6,11 @@ import { addDoc, getFirestore } from "firebase/firestore"
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-import firebaseConfig from "./firebase.config.json"
+if (REACT_APP_FIREBASECONFIG) {
+   firebaseConfig = JSON.parse(REACT_APP_FIREBASECONFIG)
+} else {
+   import firebaseConfig from "./firebase.config.json"
+}
 
 // Initialize Firebase
 initializeApp(firebaseConfig);
