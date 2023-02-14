@@ -3,7 +3,7 @@ import React from 'react';
 function Select({ props }) {
    return (
       <div>
-         <label htmlFor={props.name}>{props.label}</label>
+         <label htmlFor={props.name}>{props.label}{props.required ? "*" : null}</label>
          <select name="" id={props.name} onChange={(e) => props.changeFn(e.target.value)}>
             <option value={'null'}>selecciona</option>
             {props.options.map(function (option) {

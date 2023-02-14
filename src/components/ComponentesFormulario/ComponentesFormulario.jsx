@@ -36,7 +36,7 @@ function ComponentesFormulario({ props, state }) {
 
    return (
       <div key={'container_component' + props.type + props.name}>
-         soy un item radom por desarrollar {props.type} + {props.name}
+         soy un item por desarrollar {props.type} + {props.name}
          <pre>
             {JSON.stringify(props)}
          </pre>

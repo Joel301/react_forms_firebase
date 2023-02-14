@@ -1,25 +1,26 @@
+import { addDoc, collection } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
+import { db } from '../firebase';
 
 import { items } from "./../../db.json"
 import ComponentesFormulario from './ComponentesFormulario/ComponentesFormulario';
 
+
 function Formulario(props) {
    const [formProps, setformProps] = useState({});
 
-   function submitAction(e) {
+   async function submitAction(e) {
       e.preventDefault()
       console.log(formProps)
+      const response = await addDoc(collection(db, 'items'), formProps);
+      console.log(response)
    }
 
    return (
       <div>
          <h1>Soy un Formulario</h1>
-         <pre>
-            {JSON.stringify(formProps)}
-         </pre>
          <form onSubmit={submitAction}>
             {items.map(function (item) {
-               // return <li key={item.name + item.type}>{item.type} </li>
                if (item.name == "submit") {
                   item = { ...item, submitAction }
                }
