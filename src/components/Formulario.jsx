@@ -11,9 +11,7 @@ function Formulario(props) {
 
    async function submitAction(e) {
       e.preventDefault()
-      console.log(formProps)
       const response = await addDoc(collection(db, 'items'), formProps);
-      console.log(response)
    }
 
    return (
